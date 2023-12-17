@@ -12,19 +12,29 @@ service Auth {
 message RegisterRequest {
   string emain = 1;
   string password = 2;
-  string phone = 3;
+  int32 balancemoney = 3;
   string name = 4;
+  string surname = 5;
+  int32 balancebonus = 6;
+  string phone = 7;
+  int64 dateofregistered = 8;
+  repeated Promocodes promocodes = 9;
+}
+
+message Promocodes {
+    int64 datecreated = 1;
+    int64 datedead=2;
+    int32 Percent = 3;
+    string UUID = 4;
 }
 
 message RegisterResponse {
   int64 user_id = 1;
-  string token = 2;
 }
 
 message LoginRequest {
   string emain = 1;
   string password = 2;
-  int32 app_id = 3;
 }
 
 message LoginResponse {
